@@ -1,0 +1,22 @@
+{
+  "name": "gecko",
+  "version": "0.0.0",
+  "description": "gecko game engine",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "game",
+    "engine",
+    "tile",
+    "touch",
+    "web"
+  ],
+  "author": "George O. E. Campbell [campbell.goe@gmail.com]",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "mocha": "^9.0.2"
+  }
+}
