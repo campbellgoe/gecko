@@ -15,7 +15,19 @@ describe('utils', function(){
 	describe('makeTicker', function(){
 	  it('should tick once per second over 5s', function(done){
 	    this.timeout(6050)
-	    const startTicker = makeTicker(t => {
+	    const startTicker = makeTicker(1000, t => {
+	      console.log('t', t, Date.now())
+	      if(t === 5){
+	        done()
+	        return false
+	      }
+	      return true
+	    })
+	    startTicker()
+	  })
+	  it('should tick 5 times over 2.5s', function(done){
+	    this.timeout(3050)
+	    const startTicker = makeTicker(500, t => {
 	      console.log('t', t, Date.now())
 	      if(t === 5){
 	        done()

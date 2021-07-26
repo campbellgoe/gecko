@@ -1,7 +1,7 @@
-function makeTick(onTick){
+function makeTick(msInterval, onTick){
   let t = 0
   function tick(correction = 0, prevTimestamp = Date.now()){
-    correction = 1000-correction
+    correction = msInterval-correction
     //if(Math.abs(correction) >= 1000){
     //	correction = 0
     //}
@@ -12,14 +12,14 @@ function makeTick(onTick){
    	  if(continueTicking){
    		tick(Date.now()-prevTimestamp, Date.now())
    	  }
-   	}, 1000+correction)
+   	}, msInterval+correction)
   }
   return tick
 }
-export default function makeTicker(onTick){
-	const tick = makeTick(onTick)
+export default function makeTicker(msInterval = 1000, onTick){
+	const tick = makeTick(msInterval, onTick)
 	function ticker(){
-		tick(1000)
+		tick(msInterval)
 	}
 	return ticker
 }
