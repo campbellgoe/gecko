@@ -4,7 +4,7 @@
 
 Below is some example code
 
-import { utils } from 'gecko'
+import { utils } from 'geko-lib'
 
 const { makeTicker, msToSeconds } = utils
 

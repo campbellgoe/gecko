@@ -1,7 +1,7 @@
 {
-  "name": "gecko",
-  "version": "0.0.1",
-  "description": "gecko 2.5D game library",
+  "name": "geko-lib",
+  "version": "0.0.2",
+  "description": "geko 2.5D game library",
   "main": "index.js",
   "module": "main.js",
   "type": "module",
@@ -16,9 +16,9 @@
     "web"
   ],
   "author": "George O. E. Campbell <campbell.goe@gmail.com> (https://georgecampbell.co.uk)",
-  "repository" : {
-  	"url": "https://github.com/campbellgoe/gecko",
-  	"type": "git"
+  "repository": {
+    "url": "https://github.com/campbellgoe/gecko",
+    "type": "git"
   },
   "license": "UNLICENSED",
   "devDependencies": {
