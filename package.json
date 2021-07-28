@@ -1,6 +1,6 @@
 {
   "name": "geko-lib",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "geko 2.5D game library",
   "module": "main.js",
   "type": "module",
