@@ -1,22 +1,30 @@
 {
   "name": "gecko",
-  "version": "0.0.0",
-  "description": "gecko game engine",
+  "version": "0.0.1",
+  "description": "gecko 2.5D game library",
   "main": "index.js",
+  "module": "main.js",
   "type": "module",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
     "game",
-    "engine",
+    "2.5D",
     "tile",
     "touch",
     "web"
   ],
-  "author": "George O. E. Campbell [campbell.goe@gmail.com]",
+  "author": "George O. E. Campbell <campbell.goe@gmail.com> (https://georgecampbell.co.uk)",
+  "repository" : {
+  	"url": "https://github.com/campbellgoe/gecko",
+  	"type": "git"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
     "mocha": "^9.0.2"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
   }
 }
