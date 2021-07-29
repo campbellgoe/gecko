@@ -1,26 +1,40 @@
-# gecko
+# geko-lib
+
+`import geko from 'geko-lib'`
 
 ## utils
 
-Below is some example code
+See below for an example custom react hook using these utilities
 
-import { utils } from 'geko-lib'
+```javascript
+import geko from 'geko-lib'
+import { useState, useEffect } from 'react';
 
-const { makeTicker, msToSeconds } = utils
-
-const startTicker = makeTicker(1000, onSecondTicked)
-
-function onSecondTicked(nTicks){
-	console.log(nTicks, "seconds passed")
-	if(nTicks % 60 === 0){
-		console.log(nTicks / 60, "minutes passed")
-		if(nTicks > 60 * 5){
-		    console.log("5 minutes passed, stopping...")
-			return false
-		}
-	}
-	// keep ticking
-	return true
+function getEndDateInSeconds(endDate){
+  const { msToSeconds } = geko.utils
+  return msToSeconds((new Date(endDate)).getTime()-Date.now())
 }
 
-startTicker()
+export default function useCountdown(endDate) {	
+  const [secondsRemaining, setSecondsRemaining] = useState(getEndDateInSeconds(endDate));
+  const [countdownEnded, setCountdownEnded] = useState(false)
+  useEffect(() => {
+    const { makeTicker } = geko.utils
+    const endDateInSeconds = getEndDateInSeconds(endDate)
+    const startTicker = makeTicker(1000, tick => {
+      if(tick <= endDateInSeconds){
+        setSecondsRemaining(secondsRemaining => secondsRemaining - 1)
+        return true
+      }
+      setCountdownEnded(true)
+      return false
+    })
+    startTicker()
+  }, [])
+	return [secondsRemaining, countdownEnded]
+}
+```
+
+# tests
+
+After cloning the repository you can run mocha tests with `npm run test`
