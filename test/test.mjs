@@ -5,11 +5,11 @@ import makeTicker from '../utils/makeTicker.js'
 describe('utils', function(){
 	describe('msToSeconds', function(){
 		it('should convert milliseconds to the nearest second', function(){
-			assert.equal(msToSeconds(1000), 1)
-			assert.equal(msToSeconds(1999), 2)
-			assert.equal(msToSeconds(1111), 1)
-			assert.equal(msToSeconds(1), 0)
-			assert.equal(msToSeconds(9876), 10)
+			assert.strictEqual(msToSeconds(1000), 1)
+			assert.strictEqual(msToSeconds(1999), 2)
+			assert.strictEqual(msToSeconds(1111), 1)
+			assert.strictEqual(msToSeconds(1), 0)
+			assert.strictEqual(msToSeconds(9876), 10)
 		})
 	})
 	describe('makeTicker', function(){
@@ -25,17 +25,16 @@ describe('utils', function(){
 	    })
 	    startTicker()
 	  })
-	  it('should tick 5 times over 2.5s', function(done){
+	  it('should tick 5 times over 2.5s and with option start: true', function(done){
 	    this.timeout(3050)
-	    const startTicker = makeTicker(500, t => {
+	    makeTicker(500, t => {
 	      console.log('t', t, Date.now())
 	      if(t === 5){
 	        done()
 	        return false
 	      }
 	      return true
-	    })
-	    startTicker()
+	    }, true)
 	  })
 	})
 })
